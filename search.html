@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+	<h1>SEARCH HERE</h1>
+
+	<style type="text/css">
+
+	
+
+		#myInput {
+ 
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 80%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+  height: 30px;
+}
+
+#myUL {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+}
+
+#myUL li a {
+  border: 1px solid #ddd; /* Add a border to all links */
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #ff5757; /* Grey background color */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove default text underline */
+  font-size: 20px; /* Increase the font-size */
+  color: white; /* Add a black text color */
+  display: block; /* Make it into a block element to fill the whole list */
+  width: 80%;
+  font-weight: bold;
+  font-family: century gothic;
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee; /* Add a hover effect to all links, except for headers */
+}
+
+h1{
+
+	color: #ff5757;
+	text-align: center;
+	font-family: century gothic;
+}
+
+
+	</style>
+<center>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="TYPE HERE TO SEARCH FAST">
+
+<ul id="myUL">
+  <li><a class="a" href="index.html#sports">SPORTS</a></li><br>
+  <li><a class="a" href="index.html#ane">ARTS & ENTERTAINMENTS</a></li><br>
+
+  <li><a class="a" href="#">MOBILE</a></li><br>
+  <li><a class="a" href="#">GREEN PRODUCTS</a></li><br>
+
+  <li><a class="a" href="index.html#health">HEALTH AND FITNESS</a></li><br>
+  <li><a class="a" href="#">FICTION</a></li><br>
+  <li><a class="a" href="#">COOKING, FOOD & WINE</a></li><br>
+  <li><a class="a" href="#">E-BUSINESS & E-MARKETING</a></li><br>
+  <li><a class="a"href="#">POLITICS & CURRENT EVENT</a></li><br>
+  <li><a class="a" href="#">GAMES</a></li><br>
+  <li><a class="a" href="#">TRAVEL</a></li><br>
+  <li><a class="a" href="#">SOFTWARE AND SERVICES</a></li><br>
+</ul>
+</center>
+<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('myInput');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myUL");
+  li = ul.getElementsByTagName('li');
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+</script>
+</body>
+</html>
